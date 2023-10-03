@@ -1,10 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Load a Map Layer</title>
+
+    <!-- ArcGIS API for JavaScript CSS -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
+
+
+
+    <!-- ArcGIS API for JavaScript -->
+    <script src="https://js.arcgis.com/4.23/"></script>
+
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
 </head>
+
 <body>
-$END$
+
+
+
+<div id="webmapView">
+    <!-- Embed the urlsFromDjango variable -->
+
+    <!-- Link to the external JavaScript file -->
+    <script src="{% static 'geo_app/js/webmap_view.js' %}"></script>
+
+
+</div>
+
+
 </body>
 </html>

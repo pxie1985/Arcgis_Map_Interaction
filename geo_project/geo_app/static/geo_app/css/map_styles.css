@@ -1,0 +1,12 @@
+/* map_styles.css */
+    .btn-white {
+        background-color: white;
+        color: #333;
+        border: none;
+    }
+
+    .btn-teal {
+        background-color: #009688;
+        color: white;
+        border: none;
+    }

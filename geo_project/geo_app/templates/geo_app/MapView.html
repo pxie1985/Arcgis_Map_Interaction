@@ -1,38 +1,87 @@
 {% load static %}
 
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Load a Map Layer</title>
 
+    <!-- Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <!-- ArcGIS API for JavaScript CSS -->
     <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
-
-    <!-- ArcGIS API for JavaScript -->
+    <link rel="stylesheet" href="{% static 'geo_app/css/map_styles.css' %}">
     <script src="https://js.arcgis.com/4.23/"></script>
 
     <style>
-        html, body, #viewDiv {
-            padding: 0;
-            margin: 0;
+        html, body {
+            height: 100%;
+        }
+
+        #viewDiv {
             height: 100%;
             width: 100%;
         }
     </style>
-
 </head>
 
-<body>
-<div id="viewDiv">
+<body class="h-100">
 
-    <!-- Link to the external JavaScript file -->
-    <script src="{% static 'geo_app/map_script.js' %}"></script>
+<div class="container-fluid h-100">
+    <div class="row h-100">
+
+        <!-- Left Column -->
+        <div class="col-md-2 p-3" style="background-color: #333;">
+            <h4 class="text-white">Options</h4>
+            <!-- Add buttons or links for your options here -->
+            <div class="mb-2">
+                <button id="addRemoveLayerBtn" class="btn btn-white btn-block py-3"
+                        onclick="setButtonColor('addRemoveLayerBtn')">
+                    Add or Remove Layer
+                </button>
+            </div>
+            <div>
+                <button id="mappWidgetBtn" class="btn btn-white btn-block py-3"
+                        onclick="setButtonColor('mappWidgetBtn')">
+                    Map Widget Options
+                </button>
+            </div>
+            <!-- ... other options ... -->
+        </div>
 
 
+        <script src="{% static 'geo_app/js/mapview_leftcol_ui.js' %}"></script>
+
+
+        <!-- Middle Column -->
+        <div class="col-md-2 bg-light">
+            <h5>Interface</h5>
+            <!-- Add the interface elements for the options here -->
+        </div>
+
+        <!-- Right Column for Map -->
+        <div class="col-md-8 h-100">
+            <div id="viewDiv">
+                <!-- Embed the urlsFromDjango variable -->
+                <script>
+                    var urlsFromDjango = {{ urls|safe }};
+                </script>
+
+                <!-- Link to the external JavaScript file -->
+                <script src="{% static 'geo_app/js/map_script.js' %}"></script>
+            </div>
+        </div>
+
+    </div>
 </div>
-
 
 </body>
 </html>
