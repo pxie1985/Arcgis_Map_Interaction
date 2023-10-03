@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Map Services</title>
+
+    <!-- ArcGIS CSS -->
+         <!-- ArcGIS API for JavaScript CSS -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
+
+    <!-- ArcGIS API for JavaScript -->
+    <script src="https://js.arcgis.com/4.23/"></script>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <ul>
+    {% for url in urls %}
+<!--present each url in the format of a link-->
+        <li><a href="{{ url }}">{{ url }}</a></li>
+    {% endfor %}
+    </ul>
+
+   <!-- print the first element of the url -->
+<!--    <h1> "{{ url_list.0 }}" </h1>-->
+
+    <!-- Your JS -->
+<!--    <script src="{% static 'geo_app/map_script.js' %}"></script>-->
+</body>
+</html>
