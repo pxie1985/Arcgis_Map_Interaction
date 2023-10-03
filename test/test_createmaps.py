@@ -6,7 +6,7 @@ from arcgis.mapping import MapImageLayer
 import webbrowser
 
 URL = "https://geohwp.houstontx.gov/arcgis/rest/services"
-map_services = MapServices(URL).mapservices
+map_services = MapServices(URL).map_urls
 
 
 # Create a GIS object for ArcGIS Online (you can also authenticate with your credentials)
@@ -18,12 +18,12 @@ webmap = WebMap()
 # Add map services
 service_urls = []
 
-#add the first 4 map services to service_u
-for i in range(1):
-    service_urls.append(map_services[i])
+# #add the first 4 map services to service_u
+# for i in range(len(map_services)):
+#     service_urls.append(map_services[i])
 
 # Add each service to the WebMap
-for url in service_urls:
+for url in map_services:
     try:
         layer = MapImageLayer(url=url)
         webmap.add_layer(layer)
@@ -31,6 +31,9 @@ for url in service_urls:
         print(url)
         print(e)
 
-# save the webmap to mapservice of the provided url
-# webmap.save(item_properties={'title':'test_webmap', 'tags':'test'}, thumbnail='thumbnail.png', folder='test')
+# save the webmap as a map layer in ArcGIS Online rest services on URL provided
+
+
+
+
 

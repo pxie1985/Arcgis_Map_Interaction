@@ -321,3 +321,7 @@ cython_debug/
 
 /test_data/
 .idea/
+/js_test/
+/src/
+/test/
+/Arcgis_Diango/

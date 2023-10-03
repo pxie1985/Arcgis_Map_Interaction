@@ -1,2 +1,2 @@
-from .UploadShpToServer import PublishSHP
-from .MapServices import MapServices
+from .backend.UploadShpToServer import PublishSHP
+from .backend.MapServices import MapServices
