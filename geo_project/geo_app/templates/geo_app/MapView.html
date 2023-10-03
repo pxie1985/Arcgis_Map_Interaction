@@ -1,4 +1,4 @@
-
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,15 +27,12 @@
 <body>
 <div id="viewDiv">
 
-    <script src="map_script.js"></script>
+    <!-- Link to the external JavaScript file -->
+    <script src="{% static 'geo_app/map_script.js' %}"></script>
 
 
 </div>
-<!-- This is just to check if the page is loading or not -->
-<!-- Link to the external JavaScript file -->
 
-
-# add a link to the external JavaScript file
 
 </body>
 </html>
