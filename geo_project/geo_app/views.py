@@ -18,7 +18,7 @@ def index(request):
 
 def map_view(request):
     urls = fetch_urls()
-    urls = urls[:5]
+    urls = urls[:2]
     return render(request, 'geo_app/MapView.html', {'urls': urls})
 
 def webmap_view(request):

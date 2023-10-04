@@ -1,0 +1,9 @@
+#accordion h3 {
+    background-color: #4CAF50; /* This is a green color, change it to whatever you like */
+    color: white; /* Text color */
+}
+
+#accordion h3.ui-state-active {
+    background-color: #388E3C; /* Darker green for active (open) state */
+    color: white;
+}

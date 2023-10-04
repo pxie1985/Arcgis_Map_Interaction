@@ -1,7 +1,6 @@
 {% load static %}
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +8,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Load a Map Layer</title>
-
     <!-- Bootstrap CSS and JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Main jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+
+
+
 
     <!-- ArcGIS API for JavaScript CSS -->
     <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
@@ -35,6 +40,8 @@
 
 <body class="h-100">
 
+
+
 <div class="container-fluid h-100">
     <div class="row h-100">
 
@@ -44,7 +51,7 @@
             <!-- Add buttons or links for your options here -->
             <div class="mb-2">
                 <button id="addRemoveLayerBtn" class="btn btn-white btn-block py-3"
-                        onclick="setButtonColor('addRemoveLayerBtn')">
+                        onclick="setButtonColor('addRemoveLayerBtn'); populateInterfaceWithUrls();">
                     Add or Remove Layer
                 </button>
             </div>
@@ -58,30 +65,26 @@
         </div>
 
 
-        <script src="{% static 'geo_app/js/mapview_leftcol_ui.js' %}"></script>
-
-
         <!-- Middle Column -->
-        <div class="col-md-2 bg-light">
-            <h5>Interface</h5>
-            <!-- Add the interface elements for the options here -->
+        <div class="col-md-2 bg-light" style="background-color: #f2e7c3;" id="interfaceColumn">
+
         </div>
 
         <!-- Right Column for Map -->
         <div class="col-md-8 h-100">
             <div id="viewDiv">
-                <!-- Embed the urlsFromDjango variable -->
-                <script>
-                    var urlsFromDjango = {{ urls|safe }};
-                </script>
-
-                <!-- Link to the external JavaScript file -->
-                <script src="{% static 'geo_app/js/map_script.js' %}"></script>
             </div>
         </div>
 
     </div>
 </div>
+
+
+<script>
+    var urlsFromDjango = {{ urls|safe }};
+</script>
+<script src="{% static 'geo_app/js/ui_functions.js' %}"></script>
+<script src="{% static 'geo_app/js/map_script.js' %}"></script>
 
 </body>
 </html>
