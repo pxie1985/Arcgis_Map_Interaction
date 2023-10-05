@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 from src import MapServices
 
 # Create your views here.
@@ -16,9 +19,9 @@ def display_map_names(request):
 def index(request):
     return render(request, 'geo_app/index.html')
 
+@csrf_exempt
 def map_view(request):
     urls = fetch_urls()
-    urls = urls[:2]
     return render(request, 'geo_app/MapView.html', {'urls': urls})
 
 def webmap_view(request):
